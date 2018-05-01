@@ -25,7 +25,7 @@ class SortingFormField(forms.CharField):
         super(SortingFormField, self).__init__(*args, **kwargs)
 
     def populate(self, items):
-        self.items = [SortedItem(item.pk, item.job_addr) for item in items]
+        self.items = [SortedItem(item.pk, item.force_text) for item in items]
 
     def prepare_value(self, value):
         value = clean_order_json(value)
